@@ -1,0 +1,6 @@
+<app-header />
+<app-user-input (calculate)="onCalculateClick($event)" />
+<app-investment-results
+  [isTableVisible]="isTableVisible"
+  [annualData]="annualData"
+/>

@@ -1,18 +1,24 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: "app-investment-results",
+  selector: "app-user-input",
   standalone: true,
-  imports: [],
-  templateUrl: "./investment-results.component.html",
-  styleUrl: "./investment-results.component.css",
+  imports: [FormsModule],
+  templateUrl: "./user-input.component.html",
+  styleUrl: "./user-input.component.css",
 })
-export class InvestmentResultsComponent {
-  isCalculatePressed = true;
-  initialInvestment = 0;
-  duration = 0;
-  expectedReturn = 0;
+export class UserInputComponent {
+  @Output() calculate = new EventEmitter();
+
+  initialInvestment = 10;
   annualInvestment = 0;
+  expectedReturn = 5;
+  duration = 10;
+
+  onCalculate() {
+    this.calculate.emit(this.calculateInvestmentResults());
+  }
 
   calculateInvestmentResults() {
     const annualData = [];
@@ -35,7 +41,6 @@ export class InvestmentResultsComponent {
           this.initialInvestment + this.annualInvestment * year,
       });
     }
-
     return annualData;
   }
 }
