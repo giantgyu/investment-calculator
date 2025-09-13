@@ -18,6 +18,10 @@ export class UserInputComponent {
 
   onCalculate() {
     this.calculate.emit(this.calculateInvestmentResults());
+    this.initialInvestment = 10;
+    this.annualInvestment = 0;
+    this.expectedReturn = 5;
+    this.duration = 10;
   }
 
   calculateInvestmentResults() {
