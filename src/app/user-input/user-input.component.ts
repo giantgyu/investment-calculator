@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-user-input',
+  selector: "app-user-input",
   standalone: true,
-  imports: [],
-  templateUrl: './user-input.component.html',
-  styleUrl: './user-input.component.css'
+  imports: [FormsModule],
+  templateUrl: "./user-input.component.html",
+  styleUrl: "./user-input.component.css",
 })
 export class UserInputComponent {
+  inputInitialInvestment = 0;
 
+  onCalculate() {
+    alert("bro");
+  }
 }
